@@ -1,5 +1,13 @@
 extends ./layout.jade
 block content
     div(class="panel panel-default")
-        div(class="panel-heading")=bunny.jid
+        div(class="panel-heading")=bunny.macAddress
         div(class="panel-body")
+            div(class="list-group")
+                div(class="list-group-item") État actuel : 
+                    span(class="label label-primary")= bunny.status
+                a(class="list-group-item" href="/admin/bunnies/" + bunny.macAddress + "/ears") Oreilles
+                a(class="list-group-item" href="/admin/bunnies/" + bunny.macAddress + "/talk") Parler
+                a(class="list-group-item" href="/admin/bunnies/" + bunny.macAddress + "/nap") Envoyer à la sieste
+                a(class="list-group-item" href="/admin/bunnies/" + bunny.macAddress + "/configure") Configurer
+                a(class="list-group-item list-group-item-danger" onclick="doReboot('" +  bunny.macAddress + "'); return false") Reboot

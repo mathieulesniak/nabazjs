@@ -1,0 +1,24 @@
+
+extends ./layout.jade
+
+block content
+    - ear_loop = ["haut", "1", "2", "3", "4", "5", "6", "7", "8", "9", "horizontal", "-1", "-2", "-3", "-4", "-5"];
+    div(class="panel panel-default")
+        div(class="panel-heading")=bunny.macAddress
+        div(class="panel-body")
+            form(onsubmit="return doEars('" + bunny.macAddress + "')")
+                div.row
+                    div.col-md-6
+                        div.form-group
+                            label(for="ear-left") Oreille gauche : 
+                            select(id="ear-left", class="form-control")
+                                each val, index in ear_loop
+                                    option(value=index) #{val}
+
+                    div.col-md-6
+                            label(for="ear-right") Oreille droite : 
+                            select(id="ear-right", class="form-control")
+                                each val, index in ear_loop
+                                    option(value=index) #{val}
+
+                button(type="submit", class="btn btn-primary") Bouger les oreilles

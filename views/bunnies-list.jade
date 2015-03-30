@@ -6,5 +6,5 @@ block content
     ul
     each val in bunnies.length ? bunnies : ['Aucun lapin connecté']
         li
-            a(class="btn btn-default", href="/admin/bunnies/" + val.macAddress,role="button")= val.jid
+            a(class="btn btn-default", href="/admin/bunnies/" + val.macAddress,role="button")= val.macAddress
             span(class="label label-primary")= val.status
