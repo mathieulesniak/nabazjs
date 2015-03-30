@@ -22,7 +22,11 @@ function doTalk(rabbitId)
 
 function doEars(rabbitId)
 {
-    $.getJSON(RABBIT_API_ROOT + '/ears?rabbit=' + rabbitId + '&left=' + $("#ear-left").val() + '&right=' + $("#ear-right").val(), function (json) {
+    earLeft = $("#ear-left").val();
+    earRight = $("#ear-right").val();
+    
+    
+    $.getJSON(RABBIT_API_ROOT + '/ears?rabbit=' + rabbitId + '&left=' + earLeft + '&right=' + earRight, function (json) {
             console.log(json);
         });
     return false;
