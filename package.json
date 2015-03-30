@@ -1,6 +1,6 @@
 {
   "name": "nabazjs",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "server.js",
   "dependencies": {
