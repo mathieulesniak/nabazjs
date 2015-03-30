@@ -1,0 +1,10 @@
+extends ./layout.jade
+block content
+    <div class="panel panel-default">
+    <div class="panel-heading">Lapins connectés</div>
+    <div class="panel-body">
+    ul
+    each val in bunnies.length ? bunnies : ['Aucun lapin connecté']
+        li
+            a(class="btn btn-default", href="/admin/bunnies/" + val.macAddress,role="button")= val.jid
+            span(class="label label-primary")= val.status
