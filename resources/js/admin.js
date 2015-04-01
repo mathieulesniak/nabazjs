@@ -31,3 +31,31 @@ function doEars(rabbitId)
         });
     return false;
 }
+
+function doInsomniac(rabbitId, mode)
+{
+    $.getJSON(RABBIT_API_ROOT+ '/insomniac',
+        {
+            rabbit: rabbitId,
+            insomniac: mode
+        },
+        function (json) {
+            console.log(json);
+        }
+    );
+}
+function doConfig(rabbitId)
+{
+    $.getJSON(RABBIT_API_ROOT+ '/save-config', 
+        {
+            rabbit: rabbitId,
+            friendlyName: $('#rabbit-name').val(),
+            breathe: $('#rabbit-breathe').val(),
+            surprise: $('#rabbit-surprise').val(),
+            taichi: $('#rabbit-taichi').val(),
+            clock: $('#rabbit-clock').is(':checked') ? 1 : 0
+        },
+        function (json) {
+            console.log(json);
+        })
+}

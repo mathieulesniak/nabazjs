@@ -9,5 +9,9 @@ block content
                 a(class="list-group-item" href="/admin/bunnies/" + bunny.macAddress + "/ears") Oreilles
                 a(class="list-group-item" href="/admin/bunnies/" + bunny.macAddress + "/talk") Parler
                 a(class="list-group-item" href="/admin/bunnies/" + bunny.macAddress + "/nap") Envoyer à la sieste
+                if bunny.insomniac 
+                    a(class="list-group-item" href="#" onclick="return doInsomniac('" + bunny.macAddress + "', 0);") Désactiver mode insomniaque
+                else
+                    a(class="list-group-item" href="#" onclick="return doInsomniac('" + bunny.macAddress + "', 1);") Activer mode insomniaque
                 a(class="list-group-item" href="/admin/bunnies/" + bunny.macAddress + "/configure") Configurer
                 a(class="list-group-item list-group-item-danger" onclick="doReboot('" +  bunny.macAddress + "'); return false") Reboot

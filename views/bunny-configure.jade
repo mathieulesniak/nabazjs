@@ -1,5 +1,24 @@
 extends ./layout.jade
 block content
+    - color_breathing = ["Aucune", "Bleu", "Vert", "Cyan", "Rouge", "Violet", "Jaune", "Blanc"];
     div(class="panel panel-default")
-        div(class="panel-heading") Configuration de #{bunny.macAddress}
+        div(class="panel-heading") Configuration de #{bunny.friendlyName}
         div(class="panel-body")
+            form(onsubmit="return doConfig('" + bunny.macAddress + "')")
+                div.form-group
+                    label(for="rabbit-name") Nom du lapin : 
+                    input.form-control(type="text", id="rabbit-name" value=bunny.config.friendlyName)
+                div.form-group
+                    label(for="rabbit-breathe") Couleur de la base :
+                    select(id="rabbit-breathe", class="form-control")
+                                each val, index in color_breathing
+                                    option(value=index, selected=bunny.config.breathe==index) #{val}
+                div.form-group
+                    label(for="rabbit-surprise") Fréquence des humeurs :
+                    input.form-control(type="text", id="rabbit-surprise", value=bunny.config.surprise)
+                    |(0=désactivé, 250=fréquent)
+                div.form-group
+                    label(for="rabbit-surprise") Fréquence du Taïchi :
+                    input.form-control(type="text", id="rabbit-taichi", value=bunny.config.taichi)
+                    |(0=désactivé, 250=fréquent)
+                button(type="submit", class="btn btn-primary") Sauvegarder
